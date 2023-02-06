@@ -41,7 +41,6 @@ keytool -list -rfc --keystore panindraprivatekey.jks | openssl x509 -inform pem 
 Enter keystore password:  abc123
 
 -----BEGIN CERTIFICATE-----
-
 MIIDcTCCAlmgAwIBAgIIE6ZKGVzUUREwDQYJKoZIhvcNAQELBQAwZzELMAkGA1UE
 BhMCVVMxCzAJBgNVBAgTAklMMRMwEQYDVQQHEwpOYXBlcnZpbGxlMQ8wDQYDVQQK
 EwZhbWF6b24xEjAQBgNVBAsTCWVjb21tZXJjZTERMA8GA1UEAxMIUGFuaW5kcmEw
@@ -61,7 +60,6 @@ gVozxLbmsFZl9fUITj0h20+jnZbx2yCucJGHxdAtPXyw2MDG2IlRJB7M94j4Gp4O
 T2rZ7EjId0MQl7reGigr7XLR6l0djzTBkfbHBtzoH9VQNNjG70GEqzZSQC814RDy
 YY5/SuQo5TEyIlrNoWVOs/Y5vXyUrJYlmo/O7uBOFz6kP80SFofbblsqxFY44KP5
 /fV+rswMvNvTncFy9HyR7AqZ5XVK
-
 -----END CERTIFICATE-----
 
 
