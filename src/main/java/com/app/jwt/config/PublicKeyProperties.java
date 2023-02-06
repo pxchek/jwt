@@ -8,10 +8,7 @@ import java.security.spec.X509EncodedKeySpec;
 
 public class PublicKeyProperties {
     public static RSAPublicKey readPublicKey() throws Exception {
-        String publicKeyPEM = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCAg0L1m7hMLqMygCvToNU7fWTSKjj6LvRcgRJe/oPF2P+NdjvSC0kCgUiXQwwR0ZQKxdWp21l2LGTbp6fLpDYCKzJSySLv4kkA2tsEZB+KYhNad/WKppWCEWq4Qq4CyGrP9bY7OiQxgVt225bI5SuEgRliYKHM+hC1niDgat0SpwIDAQAB"
-                .replace("-----BEGIN PUBLIC KEY-----", "")
-                .replaceAll(System.lineSeparator(), "")
-                .replace("-----END PUBLIC KEY-----", "");
+        String publicKeyPEM = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApMi4QUipUmziNOvgfNzwDrBKmCJ/SmnyjuKkz4FKM1bE4bPG+UJ1hL/nHaB/ruITIie1B1ZuShzyCM7Q0Ju+v+eA7o1XPPXAToONQcbdrPxMGoX3fup5asVMSI5i4yI8OcLLQXybw3O+QbfP76AsyJWtBuurX/J8Don2YX0n6IYmMJvyWQ0keDQR4LaJi2DaIyR8le6vhJJGcYJroUiqeWqKwY3TzwU+6pUHrGlqqlTj/8sqpoaWO+fL3xdVK1b1MNriwIrNAQhd6XAMrr8u+tjoNNaJAhXyPdAxMyuxJxR2jTN9Kho3IH1aSHGGDvWd7KCEA6cU6Q0ZV6x+6JzxhwIDAQAB";
 
         byte[] encoded = Base64.decodeBase64(publicKeyPEM);
 

@@ -6,12 +6,13 @@ import java.security.KeyFactory;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 
+/**
+ * Never expose the private keys in the code. This is an example only exercise,
+ * so it is ok for testing purposes only.
+ */
 public class PrivateKeyProperties {
     public static RSAPrivateKey readPrivateKey() throws Exception {
-        String privateKeyPEM = "MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAICDQvWbuEwuozKAK9Og1Tt9ZNIqOPou9FyBEl7+g8XY/412O9ILSQKBSJdDDBHRlArF1anbWXYsZNunp8ukNgIrMlLJIu/iSQDa2wRkH4piE1p39YqmlYIRarhCrgLIas/1tjs6JDGBW3bblsjlK4SBGWJgocz6ELWeIOBq3RKnAgMBAAECgYADw9SyXV2I3dTqJdci3BNjKslJXvNMYRPHogBnyA0UPsc93bji7nG1IRR/WfeAjiNILYOU9lgoniRWSxMfZDAw1WmQ0JfVkk6n7Zog8KWSbH9zlYtlFn/1kUYE+suOtvcMR1Bk+J3LNz7+L3bIW84ikqiG+MNk60mbKXtA/DMsAQJBAMSdbU8+4fiqWw1/qH7UeBFp+wOImLmqMTiqFBri2e39/JDyAxIls8+wQko4Q2iZJ3hSHlqr4c7I/sXwLuxAuGUCQQCnVBDr8AhLMHuianyXn/7Wz8MOKWTfcj17eWhQQVu3hf5HV+onoB0FpBTGCkdGX2Ex9wxicfYC8YVdvBkIuSAbAkBg4YWsR7sHUcIeC6pWHJGxWvyCCDvhOLiaSEwx11g1SjK6pVXYClXo39w6QDEPCHCHfEdSvGE/CJFprWkhpt51AkAgvKvK3V1iCIxHzHmv2JetQ1ywKp0Xsmwg+jHUcdUV5NtI7gRb2FGVRvLhhCVJuWN0uRbtM8qj7Mjg++oR8NY9AkBCVMweeDeptIVetRrPwy0Uk8sNt2/lEvWQaU2PiSJ4MSDG5qvp6/UnPV3sUEVd6rb7ls9qsX9WZbvDTxB/s6yt"
-                .replace("-----BEGIN PRIVATE KEY-----", "")
-                .replaceAll(System.lineSeparator(), "")
-                .replace("-----END PRIVATE KEY-----", "");
+        String privateKeyPEM = "MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCkyLhBSKlSbOI06+B83PAOsEqYIn9KafKO4qTPgUozVsThs8b5QnWEv+cdoH+u4hMiJ7UHVm5KHPIIztDQm76/54DujVc89cBOg41Bxt2s/Ewahfd+6nlqxUxIjmLjIjw5wstBfJvDc75Bt8/voCzIla0G66tf8nwOifZhfSfohiYwm/JZDSR4NBHgtomLYNojJHyV7q+EkkZxgmuhSKp5aorBjdPPBT7qlQesaWqqVOP/yyqmhpY758vfF1UrVvUw2uLAis0BCF3pcAyuvy762Og01okCFfI90DEzK7EnFHaNM30qGjcgfVpIcYYO9Z3soIQDpxTpDRlXrH7onPGHAgMBAAECggEAFTlkgMV0SFFi72W5k+DnKz/UqR9kXXgjovjD4+rnXOZzqbh8oSqeCrD8T9TA2Ax2t22oLkpDyVhMv7VXsE7RylOYnTaSQnVKxYdsgHOLUNZsPPb9XO5Oy4xJr4dmFZLuxpJ1mI6NXNGByLgoAwQSpev1YyX5Uac2CFoHucsjgpozqJOU47hnNfIahCoBktmOHDtMqllVwM59DXxexykZNfbqhBeZeLFK1KCxCVTFTpFW7FvZABnOGGS8QSKBRqkjYyTP2vfMc9vWqLAZlJOHakGrRNqvAFyzlCV70GJSwCxIz7lt3bey2ryqhPQYetn2pItmb9HBk3c5UFWlPiikSQKBgQDepCsZVctvyZxo1firr16Rldh4d7FuW6yNqipEEUlv3lrlEcwiglXS3G9/sB/83Uq6crfpyGrCDmAMhBd/wtt3MKjPnqKYjmkKmpMgJNYtNDLcxT7ozNLE9K4PBQUGw70MnPTLCun6bS53hqtl9XsJnPtxiIh52k3bpQkcWW89HwKBgQC9eVPBJqPaWS4z0qe8R/NvKQv/avuwNHMrM0cFhh/CVwCR6F1TnnScdyzivXLsRZJ4RTX83qaALf2FI/4RNYT/mNflUG4O14Np1eioXLA/yYRexTF6EyclWsWgI8PF/xE/FdlNjmXLHElQGW1dGuK+nN4ajnufnXwWWeAwfUdWmQKBgANjEfjHslmYApYhsy/BcjnawrlKcNuR73UUQqJYdPqLsmxLsgRQYUfc7KFPp5zsLOfbOOsIjn83QsTN+aGK8FXG2rqV2jlh6T0tDtHtXYjAg4mSQpu+CfLPGhrGY8Yvkh+v/5VbLCYQJSXSWacqbd2+kqCuiAz6gja2MwZIYgXXAoGAIfY0WAO4DPQ9Pta8cBgpfzxJRUAE2yGbnxuy2D+hQ7FajcyrpchaOI14AzBYABe8WEh3k9rI12Lm9U1tReJk83ePAzB2ebyRdo/8AumSQey6CE6qPqpeMujhUYH3nm7IxZkB+U/T2SM51Nyp6K1gBTCS8wmlCQgubMcxUx+xgMkCgYB/5lvM1WREqENjT7s0LtCqPKE7N8+RRYJyoUFQQxtYr2C91kBd9G19z5gZ/KFJR8VaftrODD05Fc1BppV02wJVVDebd4kgqt6Lzry9SBIjCOscMmU2owpSYD0Q3S5u6/nhmTpa2sQuhdfT5e2ngR+maAG0Kxo5XpyTBM5QXR+cOg==";
 
         byte[] encoded = Base64.decodeBase64(privateKeyPEM);
 

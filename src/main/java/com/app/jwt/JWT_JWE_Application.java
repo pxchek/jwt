@@ -13,7 +13,6 @@ import com.nimbusds.jose.crypto.RSAEncrypter;
 import com.nimbusds.jwt.EncryptedJWT;
 import com.nimbusds.jwt.JWTClaimsSet;
 
-import java.io.File;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
@@ -27,7 +26,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-public class JWTApplication {
+public class JWT_JWE_Application {
 
 	public static void main(String[] args) throws Exception {
 		decryptJWT();
